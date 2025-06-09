@@ -35,7 +35,7 @@ export default function HeroSection() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left Section */}
           <div className="text-center lg:text-left md:flex md:flex-col md:items-center lg:block">
-            <h1 className="text-2xl md:text-5xl lg:text-5xl font-bold text-white leading-tight my-6 md:text-center lg:text-left max-w-xl">
+            <h1 className="text-3xl md:text-5xl lg:text-5xl font-bold text-white leading-tight my-6 md:text-center lg:text-left max-w-xl">
               Smart Agriculture,{" "}
               <span className="text-green-400">Secured by Blockchain</span>
             </h1>
