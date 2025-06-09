@@ -17,30 +17,25 @@ export default function Header() {
     { name: "Contact", href: "#" },
   ];
 
-  // Handle click outside to close mobile menu
   useEffect(() => {
-    const handleClickOutside = (e) => {
-      if (menuRef.current && !menuRef.current.contains(e.target)) {
+    if (!mobileMenuOpen) return;
+
+    function handleClickOutside(event) {
+      if (menuRef.current && !menuRef.current.contains(event.target)) {
         setMobileMenuOpen(false);
       }
-    };
-
-    if (mobileMenuOpen) {
-      document.addEventListener("mousedown", handleClickOutside);
     }
 
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
   }, [mobileMenuOpen]);
 
-  // Close menu on screen resize to desktop
   useEffect(() => {
-    const handleResize = () => {
+    function handleResize() {
       if (window.innerWidth >= 1024) {
         setMobileMenuOpen(false);
       }
-    };
+    }
 
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
@@ -81,37 +76,54 @@ export default function Header() {
 
           {/* Mobile Menu Toggle Button */}
           <button
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="lg:hidden p-2 text-white hover:text-green-400 transition-colors bg-white/10 backdrop-blur-sm rounded-lg"
+            onClick={() => setMobileMenuOpen((open) => !open)}
+            className="lg:hidden p-2 text-white hover:text-green-400 transition-colors bg-white/10 backdrop-blur-sm cursor-pointer rounded-lg"
+            aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
+            aria-expanded={mobileMenuOpen}
           >
-            {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            {mobileMenuOpen ? (
+              <X className="h-6 w-6" />
+            ) : (
+              <Menu className="h-6 w-6" />
+            )}
           </button>
         </div>
+      </div>
 
-        {/* Mobile Menu */}
-        {mobileMenuOpen && (
+      {/* Mobile Menu & Fullscreen Overlay */}
+      {mobileMenuOpen && (
+        <>
+          {/* Overlay that dims and blurs entire background */}
+          <div
+            className="absolute top-16 min-h-screen left-0 right-0       bg-gradient-to-tr from-green-900/95 via-green-800/85 to-green-900/95 backdrop-blur-lg z-50"
+          />
+
+          {/* Mobile Menu */}
           <div
             ref={menuRef}
-            className="lg:hidden fixed inset-0 top-16 z-40 bg-black/80 backdrop-blur-xl px-4 py-6"
+            className="
+              fixed top-20 left-2 right-2 z-50
+              bg-black/10 border border-white/20 backdrop-blur-2xl
+              px-4 rounded-lg shadow-xl shadow-green-900/30
+            "
           >
-            <nav className="space-y-4">
+            <nav className="py-4 mt-2 space-y-4">
               {navItems.map((item) => (
                 <a
                   key={item.name}
                   href={item.href}
-                  onClick={() => setMobileMenuOpen(false)}
                   className="block text-white/90 hover:text-white py-3 transition-colors duration-300 border-b border-white/10 last:border-b-0"
                 >
                   {item.name}
                 </a>
               ))}
-              <button className="w-full mt-6 bg-green-500/90 hover:bg-green-600 text-white px-6 py-3 rounded-full font-semibold transition-all duration-300">
+              <button className="w-full mt-6 bg-green-500/90 hover:bg-green-600 text-white px-6 py-3 rounded-full font-semibold transition-all duration-300 cursor-pointer">
                 Get A Quote →
               </button>
             </nav>
           </div>
-        )}
-      </div>
+        </>
+      )}
     </header>
   );
 }

@@ -90,9 +90,9 @@ export default function HeroSection() {
                 height={580}
                 priority 
               />
-              <div className="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-green-900/20 z-50" />
-              <div className="absolute -top-5 -right-5 w-20 h-20 bg-green-400/20 backdrop-blur-md rounded-full border border-white/10 z-50 animate-bounce delay-[1000ms]" />
-              <div className="absolute z-50 -bottom-6 -left-6 w-16 h-16 bg-yellow-400/20 backdrop-blur-md rounded-full border border-white/10 animate-bounce delay-[500ms]" />
+              <div className="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-green-900/20 z-10" />
+              <div className="absolute -top-5 -right-5 w-20 h-20 bg-green-400/20 backdrop-blur-md rounded-full border border-white/10 z-10 animate-bounce delay-[1000ms]" />
+              <div className="absolute z-10 -bottom-6 -left-6 w-16 h-16 bg-yellow-400/20 backdrop-blur-md rounded-full border border-white/10 animate-bounce delay-[500ms]" />
             </div>
           </div>
         </div>
