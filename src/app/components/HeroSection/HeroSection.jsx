@@ -5,9 +5,9 @@ import { ArrowRight, CheckCircle, Play, Network } from "lucide-react";
 import { IMAGES } from "../../../assets";
 
 const features = [
-  "Seamless agri-value chain integration",
-  "End-to-end transparency through blockchain",
-  "AI-powered insights for better farm decisions",
+  "AI-powered farm insights",
+  "Integrated agri-value chain",
+  "Transparent blockchain operations",
 ];
 
 export default function HeroSection() {
@@ -31,7 +31,7 @@ export default function HeroSection() {
       </div>
 
       {/* Main Content */}
-      <div className="relative z-10 w-full max-w-screen-xl mx-auto px-4 lg:mt-6 sm:px-6">
+      <div className="relative z-10 w-full max-w-screen-xl mx-auto px-4 lg:mt-6 sm:px-4">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left Section */}
           <div className="text-center lg:text-left md:flex md:flex-col md:items-center lg:block">
@@ -40,8 +40,11 @@ export default function HeroSection() {
               <span className="text-green-400">Secured by Blockchain</span>
             </h1>
 
-            <p className="text-[clamp(1rem,2.2vw,1.25rem)] text-white/85 leading-relaxed mb-8 max-w-2xl mx-auto lg:mx-0">
-              UTHAAN is building a smart, tech-driven agricultural ecosystem
+            <p className="text-[clamp(1rem,2.2vw,1.25rem)] text-white/85 leading-relaxed mb-8 max-w-lg mx-auto lg:mx-0">
+              <span className="text-green-400 font-semibold block text-center lg:inline">
+              UTHAAN{" "}
+                </span> 
+                is building a smart, tech-driven agricultural ecosystem
               connecting farmers, innovators, and stakeholders through
               blockchain, data, and inclusive solutions.
             </p>
@@ -50,7 +53,7 @@ export default function HeroSection() {
               {features.map((point, idx) => (
                 <div key={idx} className="flex justify-center lg:justify-start">
                   <div
-                    className="flex items-center gap-2 px-4 py-2 
+                    className="flex items-center gap-2  px-4 py-2 
                    bg-white/10 backdrop-blur-md rounded-full 
                    border border-white/10 shadow-inner 
                    text-white/90 text-sm md:text-base lg:text-lg 
