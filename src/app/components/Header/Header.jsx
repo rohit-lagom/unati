@@ -1,19 +1,19 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import { Menu, X, Leaf } from 'lucide-react';
+import { useState } from "react";
+import { Menu, X, Leaf } from "lucide-react";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const navItems = [
-    { name: 'Home', href: '#' },
-    { name: 'About Us', href: '#' },
-    { name: 'Service', href: '#' },
-    { name: 'Projects', href: '#' },
-    { name: 'Blog', href: '#' },
-    { name: 'Pages', href: '#' },
-    { name: 'Contact', href: '#' },
+    { name: "Home", href: "#" },
+    { name: "About Us", href: "#" },
+    { name: "Service", href: "#" },
+    { name: "Projects", href: "#" },
+    { name: "Blog", href: "#" },
+    { name: "Pages", href: "#" },
+    { name: "Contact", href: "#" },
   ];
 
   return (
@@ -54,29 +54,34 @@ export default function Header() {
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             className="lg:hidden p-2 text-white hover:text-green-400 transition-colors bg-white/10 backdrop-blur-sm rounded-lg"
           >
-            {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            {isMenuOpen ? (
+              <X className="h-6 w-6" />
+            ) : (
+              <Menu className="h-6 w-6" />
+            )}
           </button>
         </div>
 
         {/* Mobile Menu */}
-        {isMenuOpen && (
-          <div className="lg:hidden absolute top-full left-4 right-4 bg-white/10 backdrop-blur-md border border-white/20 rounded-lg mt-2 overflow-hidden">
-            <nav className="px-4 py-4">
-              {navItems.map((item) => (
-                <a
-                  key={item.name}
-                  href={item.href}
-                  className="block text-white/90 hover:text-white py-3 transition-colors duration-300 border-b border-white/10 last:border-b-0"
-                >
-                  {item.name}
-                </a>
-              ))}
-              <button className="w-full mt-4 bg-green-500/90 backdrop-blur-sm hover:bg-green-600 text-white px-6 py-3 rounded-full font-semibold transition-all duration-300">
-                Get A Quote →
-              </button>
-            </nav>
-          </div>
-        )}
+  {isMenuOpen && (
+  <div className="lg:hidden fixed inset-0 top-16 z-40 bg-black/10 backdrop-blur-md">
+    <nav className=" px-4 py-4 mt-2 bg-black/80 backdrop-blur-md rounded-lg shadow-lg  space-y-4">
+      {navItems.map((item) => (
+        <a
+          key={item.name}
+          href={item.href}
+          className="block text-white/90 hover:text-white py-3 transition-colors duration-300 border-b border-white/10 last:border-b-0"
+        >
+          {item.name}
+        </a>
+      ))}
+      <button className="w-full mt-6 bg-green-500/90 backdrop-blur-sm hover:bg-green-600 text-white px-6 py-3 rounded-full font-semibold transition-all duration-300">
+        Get A Quote →
+      </button>
+    </nav>
+  </div>
+)}
+
       </div>
     </header>
   );
