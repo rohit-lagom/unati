@@ -1,5 +1,5 @@
 import Image from "next/image";
-
+import HeroSection from "./components/HeroSection/HeroSection";
 import Header from "./components/Header/Header";
 
 export default function Home() {
@@ -7,7 +7,7 @@ export default function Home() {
 
     <main className="relative">
       <Header />
-
+      <HeroSection />
     </main>
 
   );
