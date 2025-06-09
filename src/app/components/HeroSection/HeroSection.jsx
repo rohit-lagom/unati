@@ -10,7 +10,7 @@ const features = [
 
 export default function HeroSection() {
   return (
-    <section className="relative min-h-screen flex flex-col overflow-hidden">
+    <section className="relative min-h-screen flex flex-col overflow-hidden ">
       {/* Background Layers */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-gradient-to-br from-green-900/50 via-green-800/30 to-emerald-900/40" />
@@ -60,13 +60,15 @@ export default function HeroSection() {
             </div>
 
             {/* Call-to-Action Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-              <button className="group bg-green-500/90 hover:bg-green-600 text-white px-6 py-3 rounded-full font-medium transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-green-500/30 inline-flex items-center space-x-2 backdrop-blur-sm">
+            <div className="flex flex-col sm:flex-row gap-4 pb-6 justify-center lg:justify-start text-center lg:text-left">
+              {/* Join Button */}
+              <button className="group bg-green-500/90 hover:bg-green-600 text-white px-6 py-3 rounded-full font-medium transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-green-500/30 flex items-center justify-center space-x-2 backdrop-blur-sm w-full sm:w-auto">
                 <span>Join UTHAAN</span>
                 <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
               </button>
 
-              <button className="group bg-white/10 hover:bg-white/20 text-white px-6 py-3 rounded-full font-medium transition-all duration-300 hover:scale-105 border border-white/20 inline-flex items-center space-x-2 backdrop-blur-sm">
+              {/* How it works */}
+              <button className="group bg-white/10 hover:bg-white/20 text-white px-6 py-3 rounded-full font-medium transition-all duration-300 hover:scale-105 border border-white/20 flex items-center justify-center space-x-2 backdrop-blur-sm w-full sm:w-auto">
                 <Play className="h-5 w-5 group-hover:scale-110 transition-transform duration-300" />
                 <span>How It Works</span>
               </button>
@@ -75,7 +77,7 @@ export default function HeroSection() {
 
           {/* Right Visual */}
           <div className="hidden lg:flex justify-center">
-            <div className="relative w-[280px] h-[280px] sm:w-[340px] sm:h-[400px] xl:w-[420px] xl:h-[420px] rounded-full overflow-hidden border-4 border-white/10 backdrop-blur-md shadow-2xl">
+            <div className="relative w-[280px] h-[280px] sm:w-[400px] sm:h-[400px] xl:w-[420px] xl:h-[420px] rounded-full overflow-hidden border-4 border-white/10 backdrop-blur-md shadow-2xl">
               <img
                 src="https://images.pexels.com/photos/1072824/pexels-photo-1072824.jpeg?auto=compress&cs=tinysrgb&w=800&h=800&fit=crop"
                 alt="Hands protecting a young plant"
