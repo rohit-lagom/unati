@@ -1,10 +1,11 @@
 "use client";
 
-import { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Menu, X, Leaf } from "lucide-react";
 
 export default function Header() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const menuRef = useRef(null);
 
   const navItems = [
     { name: "Home", href: "#" },
@@ -15,6 +16,35 @@ export default function Header() {
     { name: "Pages", href: "#" },
     { name: "Contact", href: "#" },
   ];
+
+  // Handle click outside to close mobile menu
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (menuRef.current && !menuRef.current.contains(e.target)) {
+        setMobileMenuOpen(false);
+      }
+    };
+
+    if (mobileMenuOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [mobileMenuOpen]);
+
+  // Close menu on screen resize to desktop
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 1024) {
+        setMobileMenuOpen(false);
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-white/10 backdrop-blur-md border-b border-white/20">
@@ -44,44 +74,43 @@ export default function Header() {
 
           {/* Get A Quote Button */}
           <div className="hidden lg:block">
-            <button className="bg-green-500/90 backdrop-blur-sm hover:bg-green-600 text-white px-6 py-3 rounded-full font-semibold transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-green-500/25 border border-green-400/30">
+            <button className="bg-green-500/90 hover:bg-green-600 text-white px-6 py-3 rounded-full font-semibold transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-green-500/25 border border-green-400/30">
               Get A Quote →
             </button>
           </div>
 
-          {/* Mobile Menu Button */}
+          {/* Mobile Menu Toggle Button */}
           <button
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             className="lg:hidden p-2 text-white hover:text-green-400 transition-colors bg-white/10 backdrop-blur-sm rounded-lg"
           >
-            {isMenuOpen ? (
-              <X className="h-6 w-6" />
-            ) : (
-              <Menu className="h-6 w-6" />
-            )}
+            {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </button>
         </div>
 
         {/* Mobile Menu */}
-  {isMenuOpen && (
-  <div className="lg:hidden fixed inset-0 top-16 z-40 bg-black/10 backdrop-blur-md">
-    <nav className=" px-4 py-4 mt-2 bg-black/80 backdrop-blur-md rounded-lg shadow-lg  space-y-4">
-      {navItems.map((item) => (
-        <a
-          key={item.name}
-          href={item.href}
-          className="block text-white/90 hover:text-white py-3 transition-colors duration-300 border-b border-white/10 last:border-b-0"
-        >
-          {item.name}
-        </a>
-      ))}
-      <button className="w-full mt-6 bg-green-500/90 backdrop-blur-sm hover:bg-green-600 text-white px-6 py-3 rounded-full font-semibold transition-all duration-300">
-        Get A Quote →
-      </button>
-    </nav>
-  </div>
-)}
-
+        {mobileMenuOpen && (
+          <div
+            ref={menuRef}
+            className="lg:hidden fixed inset-0 top-16 z-40 bg-black/80 backdrop-blur-xl px-4 py-6"
+          >
+            <nav className="space-y-4">
+              {navItems.map((item) => (
+                <a
+                  key={item.name}
+                  href={item.href}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="block text-white/90 hover:text-white py-3 transition-colors duration-300 border-b border-white/10 last:border-b-0"
+                >
+                  {item.name}
+                </a>
+              ))}
+              <button className="w-full mt-6 bg-green-500/90 hover:bg-green-600 text-white px-6 py-3 rounded-full font-semibold transition-all duration-300">
+                Get A Quote →
+              </button>
+            </nav>
+          </div>
+        )}
       </div>
     </header>
   );
