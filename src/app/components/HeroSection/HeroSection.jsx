@@ -1,16 +1,18 @@
 "use client";
+import Image from "next/image";
 
 import { ArrowRight, CheckCircle, Play, Network } from "lucide-react";
+import { IMAGES } from "../../../assets";
 
 const features = [
+  "Seamless agri-value chain integration",
   "End-to-end transparency through blockchain",
   "AI-powered insights for better farm decisions",
-  "Seamless integration across the agri-value chain",
 ];
 
 export default function HeroSection() {
   return (
-    <section className="relative min-h-screen flex flex-col overflow-hidden ">
+    <section className="relative lg:min-h-screen flex flex-col overflow-hidden pb-6">
       {/* Background Layers */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-gradient-to-br from-green-900/50 via-green-800/30 to-emerald-900/40" />
@@ -22,18 +24,18 @@ export default function HeroSection() {
       <div className="z-10 w-full flex justify-center pt-28 sm:pt-24 md:pt-28">
         <div className="flex items-center px-4 py-2 bg-green-500/10 backdrop-blur-md rounded-full border border-green-400/30">
           <Network className="w-4 h-4 text-green-300 mr-2" />
-          <span className="text-sm font-semibold text-green-100">
+          <span className="text-sm md:text-lg font-medium text-green-100">
             Blockchain-Powered Agriculture
           </span>
         </div>
       </div>
 
       {/* Main Content */}
-      <div className="relative z-10 w-full max-w-screen-xl mx-auto px-6">
+      <div className="relative z-10 w-full max-w-screen-xl mx-auto px-4 lg:mt-6 sm:px-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left Section */}
           <div className="text-center lg:text-left md:flex md:flex-col md:items-center lg:block">
-            <h1 className="text-2xl md:text-5xl lg:text-6xl font-bold text-white leading-tight my-6 md:text-center lg:text-left max-w-xl">
+            <h1 className="text-2xl md:text-5xl lg:text-5xl font-bold text-white leading-tight my-6 md:text-center lg:text-left max-w-xl">
               Smart Agriculture,{" "}
               <span className="text-green-400">Secured by Blockchain</span>
             </h1>
@@ -44,17 +46,19 @@ export default function HeroSection() {
               blockchain, data, and inclusive solutions.
             </p>
 
-            {/* Feature Points */}
             <div className="space-y-4 mb-10">
               {features.map((point, idx) => (
-                <div
-                  key={idx}
-                  className="flex items-start gap-3 justify-center lg:justify-start"
-                >
-                  <CheckCircle className="text-green-400 w-5 h-5 mt-1 flex-shrink-0" />
-                  <span className="text-white/90 text-[clamp(0.95rem,1.1vw,1.125rem)]">
-                    {point}
-                  </span>
+                <div key={idx} className="flex justify-center lg:justify-start">
+                  <div
+                    className="flex items-center gap-2 px-4 py-2 
+                   bg-white/10 backdrop-blur-md rounded-full 
+                   border border-white/10 shadow-inner 
+                   text-white/90 text-sm md:text-base lg:text-lg 
+                   leading-relaxed w-fit"
+                  >
+                    <CheckCircle className="text-green-400 w-5 h-5 mt-[2px] flex-shrink-0" />
+                    <span>{point}</span>
+                  </div>
                 </div>
               ))}
             </div>
@@ -76,16 +80,19 @@ export default function HeroSection() {
           </div>
 
           {/* Right Visual */}
-          <div className="hidden lg:flex justify-center">
-            <div className="relative w-[280px] h-[280px] sm:w-[400px] sm:h-[400px] xl:w-[420px] xl:h-[420px] rounded-full overflow-hidden border-4 border-white/10 backdrop-blur-md shadow-2xl">
-              <img
-                src="https://images.pexels.com/photos/1072824/pexels-photo-1072824.jpeg?auto=compress&cs=tinysrgb&w=800&h=800&fit=crop"
+          <div className="hidden lg:flex justify-center relative">
+            <div className=" rounded-full overflow-hidden border-4 border-white/10 backdrop-blur-md shadow-2xl">
+              <Image
+                src={IMAGES.hero}
                 alt="Hands protecting a young plant"
                 className="w-full h-full object-cover"
+                width={580}
+                height={580}
+                priority 
               />
-              <div className="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-green-900/20" />
-              <div className="absolute -top-5 -right-5 w-20 h-20 bg-green-400/20 backdrop-blur-md rounded-full border border-white/10 animate-bounce delay-1000" />
-              <div className="absolute -bottom-6 -left-6 w-16 h-16 bg-yellow-400/20 backdrop-blur-md rounded-full border border-white/10 animate-bounce delay-500" />
+              <div className="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-green-900/20 z-50" />
+              <div className="absolute -top-5 -right-5 w-20 h-20 bg-green-400/20 backdrop-blur-md rounded-full border border-white/10 z-50 animate-bounce delay-[1000ms]" />
+              <div className="absolute z-50 -bottom-6 -left-6 w-16 h-16 bg-yellow-400/20 backdrop-blur-md rounded-full border border-white/10 animate-bounce delay-[500ms]" />
             </div>
           </div>
         </div>
