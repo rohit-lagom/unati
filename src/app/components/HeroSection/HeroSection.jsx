@@ -1,42 +1,55 @@
-'use client';
+"use client";
 
-import { ArrowRight, CheckCircle, Play } from 'lucide-react';
+import { ArrowRight, CheckCircle, Play, Network } from "lucide-react";
 
 export default function HeroSection() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden flex-col">
       {/* Background Layers */}
       <div className="absolute inset-0 bg-gradient-to-br from-green-900/50 via-green-800/30 to-emerald-900/40">
         <div className="absolute inset-0 bg-[url('https://images.pexels.com/photos/1595104/pexels-photo-1595104.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop')] bg-cover bg-center opacity-20"></div>
         <div className="absolute inset-0 backdrop-blur-[2px] bg-gradient-to-br from-green-900/60 via-green-800/50 to-emerald-900/60"></div>
       </div>
 
-      <div className="relative z-10 max-w-screen-xl mx-auto px-6 sm:px-8 lg:px-12 py-16 sm:py-20 lg:py-28">
+      <div className="relative z-10 w-full flex justify-center">
+        <div className="inline-flex items-center px-4 py-2 bg-green-500/10 backdrop-blur-md rounded-full border border-green-400/30 mt-8">
+          <Network className="w-4 h-4 text-green-300 mr-2" />
+          <span className="text-sm font-semibold text-green-100 text-center">
+            Blockchain-Powered Agriculture
+          </span>
+        </div>
+      </div>
+
+      <div className="relative z-10 max-w-screen-xl mx-auto px-6 sm:px-8 lg:px-12 py-10 sm:py-20 lg:py-28 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
           {/* Left Content */}
           <div className="text-center lg:text-left">
             <h1 className="text-[clamp(2.25rem,5vw,3.5rem)] font-bold text-white leading-tight mb-6">
-              UTHAAN -{' '}
-              <span className="text-green-400">Empowering Agriculture with Blockchain</span>
+              Smart Agriculture,{" "}
+              <span className="text-green-400">Secured by Blockchain</span>
             </h1>
 
             <p className="text-[clamp(1rem,2.2vw,1.25rem)] text-white/85 max-w-xl mx-auto lg:mx-0 mb-8 leading-relaxed">
-              UTHAAN (Unati Tech for Holistic Agri-Advancement & Networking Pvt. Ltd.) pioneers a
-              future-ready agricultural ecosystem. From farmers to innovators, we connect
-              stakeholders through blockchain-powered trust, data-driven decisions, and inclusive
-              agri-solutions.
+              UTHAAN is building a smart, tech-driven agricultural ecosystem
+              connecting farmers, innovators, and stakeholders through
+              blockchain, data, and inclusive solutions.
             </p>
 
             {/* Feature Points */}
             <div className="space-y-4 mb-10">
               {[
-                'Blockchain-based transparency for all stakeholders',
-                'Smart data-led decision-making in farming',
-                'Seamless connectivity across the agri-value chain',
+                "End-to-end transparency through blockchain",
+                "AI-powered insights for better farm decisions",
+                "Seamless integration across the agri-value chain",
               ].map((point, i) => (
-                <div key={i} className="flex items-start gap-3 justify-center lg:justify-start">
+                <div
+                  key={i}
+                  className="flex items-start gap-3 justify-center lg:justify-start"
+                >
                   <CheckCircle className="text-green-400 w-5 h-5 flex-shrink-0 mt-1" />
-                  <span className="text-white/90 text-[clamp(0.95rem,1.1vw,1.125rem)]">{point}</span>
+                  <span className="text-white/90 text-[clamp(0.95rem,1.1vw,1.125rem)]">
+                    {point}
+                  </span>
                 </div>
               ))}
             </div>
@@ -73,7 +86,11 @@ export default function HeroSection() {
 
       {/* Decorative Wave */}
       <div className="absolute bottom-0 left-0 right-0">
-        <svg className="w-full h-12 sm:h-20 text-white/5" viewBox="0 0 1200 120" fill="currentColor">
+        <svg
+          className="w-full h-12 sm:h-20 text-white/5"
+          viewBox="0 0 1200 120"
+          fill="currentColor"
+        >
           <path d="M0,60 C400,20 800,100 1200,60 L1200,120 L0,120 Z"></path>
         </svg>
       </div>
