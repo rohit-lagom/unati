@@ -50,7 +50,7 @@ export default function Header() {
             <div className="p-2 bg-green-500 rounded-full shadow-lg">
               <Leaf className="h-6 w-6 text-white" />
             </div>
-            <span className="text-2xl font-bold text-white">Unati</span>
+            <span className="text-2xl font-bold text-white">Uthaan</span>
           </div>
 
           {/* Desktop Navigation */}
