@@ -1,3 +1,4 @@
+// app/layout.jsx
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
@@ -12,49 +13,49 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "UTHAAN – Revolutionizing Agriculture with Blockchain & Emerging Tech",
+  title: "Farmily – Bridging Farms and Families",
   description:
-    "UTHAAN (Unati Tech for Holistic Agri-Advancement & Networking) is a holistic agri-tech ecosystem leveraging blockchain, AI, and IoT to empower farmers, optimize supply chains, and bring transparency from farm to fork.",
+    "Farmily is a community-driven platform that connects local farmers with families, promoting fresh produce, sustainability, and fair trade from farm to fork.",
   keywords: [
-    "UTHAAN",
-    "Unati Tech",
-    "agritech",
-    "blockchain agriculture",
-    "farm to fork",
-    "smart farming",
-    "agriculture transparency",
-    "carbon credits",
-    "farmer empowerment",
-    "IoT in agriculture",
-    "AI farming",
-    "sustainable agriculture",
-    "decentralized agri ecosystem",
+    "Farmily",
+    "farm to table",
+    "sustainable farming",
+    "organic food",
+    "local farms",
+    "fresh produce",
+    "farmers market",
+    "community supported agriculture",
+    "agriculture platform",
+    "farmers network",
+    "healthy food delivery",
+    "transparent supply chain",
+    "natural farming",
   ],
-  authors: [{ name: "Unati Tech for Holistic Agri-Advancement & Networking" }],
-  creator: "UTHAAN",
-  themeColor: "#0D5F4A",
+  authors: [{ name: "Farmily Team" }],
+  creator: "Farmily",
+  themeColor: "#3D9140",
   openGraph: {
-    title: "UTHAAN – Empowering Agriculture through Technology",
+    title: "Farmily – Connecting Farms and Families",
     description:
-      "An end-to-end agricultural ecosystem using blockchain, IoT, and AI to drive sustainability, efficiency, and traceability.",
-    url: "",
-    siteName: "UTHAAN",
+      "Support local agriculture and access fresh, organic produce through Farmily. We bring families closer to the farms they rely on.",
+    url: "https://farmily.in", // Replace with your actual domain
+    siteName: "Farmily",
     images: [
       {
-        url: "/og-image.jpg",
+        url: "https://farmily.in/og-image.jpg", // Replace with your actual OG image path
         width: 1200,
         height: 630,
-        alt: "UTHAAN – AgriTech Blockchain Ecosystem",
+        alt: "Farmily – Farm to Table Platform",
       },
     ],
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "UTHAAN – AgriTech Powered by Blockchain",
+    title: "Farmily – Fresh Food, Fair Farming",
     description:
-      "Transforming Indian agriculture with cutting-edge technology and sustainable practices.",
-    images: ["/og-image.jpg"],
+      "Farmily is building a transparent, tech-enabled bridge between local farms and modern families. Discover the future of food.",
+    images: ["https://farmily.in/twitter-card.jpg"], // Replace with actual image path
   },
 };
 
