@@ -1,6 +1,6 @@
 {
-  "name": "unati",
-  "version": "0.1.0",
+  "name": "farmily",
+  "version": "0.2.1",
   "private": true,
   "scripts": {
     "dev": "next dev",
