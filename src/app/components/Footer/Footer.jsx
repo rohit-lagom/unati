@@ -137,7 +137,7 @@ const Footer = () => {
 
         {/* Copyright */}
         <div className="border-t border-white/10 pt-8 text-center text-sm text-white/60">
-          © 2025 UTHAAN. All rights reserved.
+          © 2025 Farmily. All rights reserved.
         </div>
       </div>
     </footer>
