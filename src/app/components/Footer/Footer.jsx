@@ -67,8 +67,10 @@ const stats = [
 
 const Footer = () => {
   return (
-    <footer className="bg-gradient-to-br from-gray-900 via-green-900 to-blue-900 text-white">
-      <div className="max-w-7xl mx-auto px-6 py-16 space-y-16">
+    <footer className="relative overflow-hidden bg-black text-white">
+      <div className="absolute inset-0 bg-gradient-to-br from-green-800/30 to-blue-900/30 blur-3xl z-0" />
+
+      <div className="relative z-10 max-w-7xl mx-auto px-6 py-16 space-y-16 backdrop-blur-md bg-white/5 rounded-t-3xl border-t border-white/10 shadow-[inset_0_1px_1px_rgba(255,255,255,0.1)]">
         {/* Main Content */}
         <div className="grid lg:grid-cols-5 gap-12">
           {/* Brand & Contact */}
@@ -95,7 +97,7 @@ const Footer = () => {
                   key={name}
                   href={href}
                   aria-label={name}
-                  className="w-10 h-10 glassmorphism-dark rounded-full flex items-center justify-center hover:scale-110 transition-all duration-300 group"
+                  className="w-10 h-10 rounded-full bg-white/10 border border-white/10 backdrop-blur-sm flex items-center justify-center hover:scale-110 transition-all duration-300 group"
                 >
                   <Icon className="w-5 h-5 text-white/70 group-hover:text-white" />
                 </a>
