@@ -17,39 +17,18 @@ const footerSections = [
   },
   {
     title: 'Solutions',
-    links: [
-      'For Farmers',
-      'For Enterprises',
-      'For FPOs',
-      'For Buyers',
-      'API Documentation',
-    ],
+    links: ['For Farmers', 'For Enterprises', 'For FPOs', 'For Buyers', 'API Documentation'],
   },
   {
     title: 'Support',
-    links: [
-      'Help Center',
-      'Contact Support',
-      'Training Videos',
-      'Community Forum',
-      'System Status',
-    ],
+    links: ['Help Center', 'Contact Support', 'Training Videos', 'Community Forum', 'System Status'],
   },
 ];
 
 const contactInfo = [
-  {
-    icon: MapPin,
-    text: 'Bangalore, Karnataka, India',
-  },
-  {
-    icon: Mail,
-    text: 'hello@uthaan.com',
-  },
-  {
-    icon: Phone,
-    text: '+91 98765 43210',
-  },
+  { icon: MapPin, text: 'Bangalore, Karnataka, India' },
+  { icon: Mail, text: 'hello@uthaan.com' },
+  { icon: Phone, text: '+91 98765 43210' },
 ];
 
 const socialLinks = [
@@ -68,12 +47,14 @@ const stats = [
 const Footer = () => {
   return (
     <footer className="relative overflow-hidden bg-black text-white">
-      <div className="absolute inset-0 bg-gradient-to-br from-green-800/30 to-blue-900/30 blur-3xl z-0" />
+      {/* Optional glow background */}
+      <div className="absolute inset-0 z-0 bg-gradient-to-br from-green-800/40 to-blue-900/40 blur-2xl" />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 py-16 space-y-16 backdrop-blur-md bg-white/5 rounded-t-3xl border-t border-white/10 shadow-[inset_0_1px_1px_rgba(255,255,255,0.1)]">
+      {/* Glass container */}
+      <div className="relative z-10 max-w-7xl mx-auto px-6 py-16 space-y-16 backdrop-blur-md bg-white/5 border-t border-white/10 rounded-t-3xl">
         {/* Main Content */}
         <div className="grid lg:grid-cols-5 gap-12">
-          {/* Brand & Contact */}
+          {/* Logo + Contact */}
           <div className="lg:col-span-2 space-y-6">
             <h2 className="text-3xl font-bold bg-gradient-to-r from-green-400 to-blue-400 bg-clip-text text-transparent">
               UTHAAN
@@ -81,25 +62,25 @@ const Footer = () => {
             <p className="text-white/80 leading-relaxed">
               Empowering agriculture through blockchain technology, connecting farmers to a transparent and profitable ecosystem.
             </p>
-
             <div className="space-y-3">
               {contactInfo.map(({ icon: Icon, text }) => (
                 <div key={text} className="flex items-center space-x-3">
-                  <Icon className="w-5 h-5 text-green-400 flex-shrink-0" />
+                  <Icon className="w-5 h-5 text-green-400" />
                   <span className="text-white/80">{text}</span>
                 </div>
               ))}
             </div>
 
+            {/* Social Icons */}
             <div className="flex space-x-4 pt-2">
               {socialLinks.map(({ name, icon: Icon, href }) => (
                 <a
                   key={name}
                   href={href}
                   aria-label={name}
-                  className="w-10 h-10 rounded-full bg-white/10 border border-white/10 backdrop-blur-sm flex items-center justify-center hover:scale-110 transition-all duration-300 group"
+                  className="w-10 h-10 rounded-full bg-white/10 backdrop-blur-sm border border-white/10 flex items-center justify-center hover:scale-105 transition"
                 >
-                  <Icon className="w-5 h-5 text-white/70 group-hover:text-white" />
+                  <Icon className="w-5 h-5 text-white/70 hover:text-white" />
                 </a>
               ))}
             </div>
@@ -114,7 +95,7 @@ const Footer = () => {
                   <li key={link}>
                     <a
                       href="#"
-                      className="text-white/70 hover:text-white transition-colors duration-300"
+                      className="text-white/70 hover:text-white transition-colors"
                     >
                       {link}
                     </a>
@@ -125,7 +106,7 @@ const Footer = () => {
           ))}
         </div>
 
-        {/* Stats */}
+        {/* Stats Row */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center border-t border-white/10 pt-8">
           {stats.map(({ label, value, color }) => (
             <div key={label}>
